@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "speedrunapi"
-version = "0.0.1"
+version = "0.2.0"
 authors = [
   { name="Connor (fishin_rod)" },
 ]
@@ -16,3 +16,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+
+[project.urls]
+"Homepage" = "https://github.com/fishin-rod/speedrunapi"
+"Bug Tracker" = "https://github.com/fishin-rod/speedrunapi/issues"
