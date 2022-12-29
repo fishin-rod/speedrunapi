@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+speedrunapi/__init__.py
+speedrunapi/speedrunapi.py
+speedrunapi.egg-info/PKG-INFO
+speedrunapi.egg-info/SOURCES.txt
+speedrunapi.egg-info/dependency_links.txt
+speedrunapi.egg-info/top_level.txt
+speedrunapi/data/game_data.py
+speedrunapi/data/user_data.py
