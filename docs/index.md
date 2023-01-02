@@ -1,9 +1,9 @@
 Speedrun APIS Documentation
 ===
-### A python library to work with the speedrun.com API
-### Version = 0.3.1
+A python library to work with the speedrun.com API
+Version = 0.3.1
 
-Read about the methods here: [users](user.md), and here: [games](games.md).
+Read about the methods here: [users](user.md), and here: [games](game.md).
 ## Known Issues
 - No currently known issues
 
