@@ -1,0 +1,8 @@
+nav:
+    - Home: 'index.md'
+    - 'Working with the library':
+        - 'Instalation': 'instalation.md'
+        - 'Users': 'user.md'
+        - 'Games': 'game.md'
+theme:
+    name: readthedocs

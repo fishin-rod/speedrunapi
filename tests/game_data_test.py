@@ -34,4 +34,3 @@ special_cases(game)
 
 end = time.time()
 print(end - start)
-print(game.levels)

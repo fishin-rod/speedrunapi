@@ -19,7 +19,7 @@ def special_cases(user):
 
 user = sr.User('fishin_rod')
 main_functions(user)
-special_cases(user)    
-end = time.time()
+special_cases(user) 
 
+end = time.time()
 print(end-start)
