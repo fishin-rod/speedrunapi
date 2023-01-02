@@ -1,4 +1,4 @@
-site_name: My Docs
+site_name: Speedrunapi Docs
 nav:
     - Home: 'index.md'
     - 'Working with the library':

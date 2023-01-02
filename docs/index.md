@@ -1,6 +1,7 @@
 Speedrun APIS Documentation
 ===
 A python library to work with the speedrun.com API
+<br>
 Version = 0.3.1
 
 Read about the methods here: [users](user.md), and here: [games](game.md).
