@@ -1,7 +1,6 @@
 from speedrunapi import User_Requests
 from datetime import datetime
 
-
 class User:
     """Data about a user on speedrun.com
     ARGS: user, a username of a person on speedrun.com"""

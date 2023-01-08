@@ -9,7 +9,7 @@ class Game:
     def lookup(self):
         """Retruns the full game data from speedrun.com as a dictionary"""
         return self.game_data.game_data
-    
+
     @property
     def format_name(self):
         """Returns the name of the game on speedrun.com but formated so it can be used in links as a string"""
