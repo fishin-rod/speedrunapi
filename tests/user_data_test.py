@@ -1,4 +1,4 @@
-import speedrunapi as sr
+from speedrunapi import User
 import time
 
 start = time.time()
@@ -13,13 +13,12 @@ def main_functions(user):
     print(user.links)
 
 def special_cases(user):
-    print(user.runs)
     print(user.moderated_games)
     print(user.personal_bests)
 
-user = sr.User('fishin_rod')
+user = User('fishin_rod')
 main_functions(user)
-special_cases(user) 
+special_cases(user)
 
 end = time.time()
 print(end-start)

@@ -9,4 +9,5 @@ speedrunapi.egg-info/dependency_links.txt
 speedrunapi.egg-info/top_level.txt
 speedrunapi/data/game_data.py
 speedrunapi/data/runs.py
+speedrunapi/data/translation.py
 speedrunapi/data/user_data.py

@@ -18,7 +18,7 @@ class User_Requests:
         self.user_stat_links()
         url = self.final_links[x]
         responce = urlopen(url)
-        self.user_data_response = loads(responce.read().decode('utf-8'))
+        self.user_data_response = loads(responce.read().decode('utf-8'))['data']
         return self.user_data_response
             
     @lru_cache(maxsize=10)
@@ -30,10 +30,10 @@ class User_Requests:
             self.final_links.append(self.user_data[0]['links'][link_type]['uri'])
         return self.final_links
     
-    def __init__(self, user = str('')):
+    def __init__(self, user):
         self.user = user
         self.user_reqest()
-
+        
 class Game_Requests:
     """Makes the game requests to speedrun.com"""
     
@@ -71,5 +71,5 @@ class Game_Requests:
             self.final_links.append(self.game_data['links'][link_type]['uri'])
         return self.final_links
 
-    def __init__(self, game = str('')):
+    def __init__(self, game):
         self.game = game

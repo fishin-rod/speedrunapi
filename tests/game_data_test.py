@@ -1,4 +1,4 @@
-import speedrunapi as sr
+from speedrunapi import Game
 import time
 
 start = time.time()
@@ -18,7 +18,6 @@ def main_functions(game):
     print(game.join_date)
 
 def special_cases(game):
-    print(game.runs)
     print(game.levels)
     print(game.catagories)
     print(game.variables)
@@ -28,9 +27,10 @@ def special_cases(game):
     print(game.romhacks)
     print(game.leaderboard)
 
-game = sr.Game('Minecraft: Java Edition')
+game = Game('Minecraft: Java Edition')
 main_functions(game)
 special_cases(game)
 
 end = time.time()
 print(end - start)
+print(game.lookup)

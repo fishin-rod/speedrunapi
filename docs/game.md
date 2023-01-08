@@ -36,7 +36,6 @@ Currently supported operations:
 - engines: Returns the engin ids of the game as a dictionary (can be [])
 - admins: Returns the developers, publishers, and moderators of the game as a dictionary
 - join_date: Returns the date the game joined speedrun.com as a string
-- runs: Returns the runs of the game as a dictionary
 - levels: Returns the leves of a game as a dictionary
 - categories: Returns the categories of the game as a dictionary
 - variables: Returns the variables of the game as a dictionary

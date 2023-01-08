@@ -31,6 +31,5 @@ Currently supported operations:
 - signup: Returns the join date of the user as a string in the format Y/M/D H/M/S
 - location: Returns the location of the user as a dictionary containing information about the country and region
 - links: Returns the links the user has listed on their profiles as a list (can be None)
-- runs: Returns the runs the user has submitted in a dictionary format
 - moderated_games: Returns the games the user moderates as a dictionary
 - personal_bests: Returns the personal bests of the user in a dictionary format
