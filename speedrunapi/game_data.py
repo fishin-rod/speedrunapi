@@ -1,5 +1,6 @@
 from speedrunapi import Game_Requests
 from datetime import datetime
+import urllib.error
 
 class Game:
     """Data about a game on speedrun.com
@@ -82,10 +83,12 @@ class Game:
     @property
     def join_date(self):
         """Returns the data a game joined speedrun.com as a string"""
-        unformatted_date = self.game_data.game_data["created"]
-        date_formatted = datetime.fromisoformat(unformatted_date)
-        return date_formatted.strftime("%Y-%m-%d")
-
+        try:
+            unformatted_date = self.game_data.game_data["created"]
+            date_formatted = datetime.fromisoformat(unformatted_date)
+            return date_formatted.strftime("%Y-%m-%d")
+        except TypeError:
+            return "Cannot create join date"
     # special cases
     @property
     def levels(self):
@@ -120,9 +123,11 @@ class Game:
     @property
     def derived_games(self):
         """Returns the derived games of a game on speedrun.com as a dictionary"""
-        self.game_data.game_data_request(7)
-        return self.game_data.game_data_response
-
+        try:
+            self.game_data.game_data_request(7)
+            return self.game_data.game_data_response
+        except urllib.error.HTTPError:
+            return "Derived Games Not Found"
     @property
     def romhacks(self):
         """DEPRICATED returns the same as derived games, here for backwards compatiblilty

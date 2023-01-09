@@ -27,7 +27,7 @@ Currently supported operations:
 - lookup: Returns the profile data of the user in a dictionary format
 - id: Rreturns the ID of the user as a string
 - name_style: Returns the name style a user has on speedrun.com as a dictonary
-- role: Returns the role of the user as a string
+- role: Returns the role of the user as a string, possible values: 
 - signup: Returns the join date of the user as a string in the format Y/M/D H/M/S
 - location: Returns the location of the user as a dictionary containing information about the country and region
 - links: Returns the links the user has listed on their profiles as a list (can be None)

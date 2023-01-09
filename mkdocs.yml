@@ -6,5 +6,6 @@ nav:
         - 'Users': 'user.md'
         - 'Games': 'game.md'
         - 'Runs': 'runs.md'
+        - 'Translation': 'translation.md'
 theme:
     name: readthedocs

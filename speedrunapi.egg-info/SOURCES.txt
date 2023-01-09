@@ -2,12 +2,13 @@ LICENSE
 README.md
 pyproject.toml
 speedrunapi/__init__.py
+speedrunapi/game_data.py
+speedrunapi/regions.py
+speedrunapi/runs.py
 speedrunapi/speedrunapi.py
+speedrunapi/translation.py
+speedrunapi/user_data.py
 speedrunapi.egg-info/PKG-INFO
 speedrunapi.egg-info/SOURCES.txt
 speedrunapi.egg-info/dependency_links.txt
 speedrunapi.egg-info/top_level.txt
-speedrunapi/data/game_data.py
-speedrunapi/data/runs.py
-speedrunapi/data/translation.py
-speedrunapi/data/user_data.py
