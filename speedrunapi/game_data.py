@@ -1,7 +1,7 @@
 from speedrunapi import Game_Requests
 from datetime import datetime
 import urllib.error
-
+import speedrunapi.translation as tr
 class Game:
     """Data about a game on speedrun.com
     ARGS: game, the full name of the game on speedrun.com"""
@@ -48,27 +48,39 @@ class Game:
 
     @property
     def regions(self):
-        """Returns the regions of a game on speedrun.com as a dictionary
-        (wont look like a real region(soon to add a way to translate these))"""
-        return self.game_data.game_data["regions"]
+        """Returns the regions of a game on speedrun.com as a dictionary"""
+        final_regions = []
+        game_regions = self.game_data.game_data["regions"]
+        for region in range(len(game_regions)):
+            final_regions.append(tr.translate_region(game_regions[region]))
+        return final_regions
 
     @property
     def platforms(self):
-        """Returns the platforms of a game on speedrun.com as a dictionary
-        (wont look like a real platform(soon to add a way to translate these))"""
-        return self.game_data.game_data["platforms"]
-
+        """Returns the platforms of a game on speedrun.com as a dictionary"""
+        final_platforms = []
+        game_platforms = self.game_data.game_data["platforms"]
+        for platform in range(len(game_platforms)):
+            final_platforms.append(tr.translate_platform(game_platforms[platform]))
+        return final_platforms
+    
     @property
     def genres(self):
-        """Returns the genres of a game on speedrun.com as a dictionary
-        (wont look like a real genre(soon to add a way to translate these))"""
-        return self.game_data.game_data["genres"]
+        """Returns the genres of a game on speedrun.com as a dictionary"""
+        final_genres = []
+        game_genres = self.game_data.game_data["genres"]
+        for genre in range(len(game_genres)):
+            final_genres.append(tr.translate_genre(game_genres[genre]))
+        return final_genres
 
     @property
     def engines(self):
-        """Returns the engines of a game on speedrun.com as a dictionary
-        (wont look like a real engine(soon to add a way to translate these))"""
-        return self.game_data.game_data["engines"]
+        """Returns the engines of a game on speedrun.com as a dictionary"""
+        final_engines = []
+        game_engines = self.game_data.game_data["engines"]
+        for engine in range(len(game_engines)):
+            final_engines.append(tr.translate_engine(game_engines[engine]))
+        return final_engines
 
     @property
     def admins(self):

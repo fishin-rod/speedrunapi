@@ -4,3 +4,27 @@ Speedrun.com's api provides ids instead of the name of the thing you are searchi
 The translations module allows you to translate the ids into names you can read.
 The translations module also works backworks by translating some names into ids (Sadly not fully supported yet).
 This modlue should be built into the code but in the rare chance that it isnt it can be used by the user aswell.
+<br>
+To use this module you first need to import it.
+```python
+>>> import speedrunapi.translation as tr
+```
+Then you can use the tr. or what ever you call it as to call some of the funtions avalible.
+```python
+>>> region_translated = tr.translate_region('e6lxy1dz')
+>>> print(region_translated)
+EUR / PAL
+```
+This is now also fully implemented into the library so code like this wont print the id, but instead will print the region.
+```python
+>>> from speedrunapi import Game
+>>> game = Game('sms')
+>>> print(game.regions)
+['EUR / PAL']
+```
+Instead of.
+```
+>>> print(game.regions)
+e6lxy1dz
+```
+
