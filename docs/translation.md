@@ -27,4 +27,13 @@ Instead of.
 >>> print(game.regions)
 e6lxy1dz
 ```
-
+Currently Supported Operations:
+===
+## Name To ID
+- username_to_id: returns a username converted to an id as a string.
+- game_name_to_id: returns a game name converted to an id as a string.
+## Users
+- translate_user_id: Returns the name of a user from a user id
+## Games
+- translate_game_id: Returns the name of a game from a game id.
+- translate_game_abbreviation: Retruns the name of a game from a abbreviation.

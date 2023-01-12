@@ -2,6 +2,7 @@ LICENSE
 README.md
 pyproject.toml
 speedrunapi/__init__.py
+speedrunapi/errors.py
 speedrunapi/game_data.py
 speedrunapi/regions.py
 speedrunapi/runs.py

@@ -1,5 +1,7 @@
 from speedrunapi import User_Requests
 from datetime import datetime
+import http.client
+from .errors import URLerror
 
 class User:
     """Data about a user on speedrun.com
@@ -44,9 +46,7 @@ class User:
         final_links = []
         link_types = ["twitch", "hitbox", "youtube", "twitter", "speedunslive"]
         for link_type in range(len(link_types)):
-            final_links.append(
-                [link.get(link_types[link_type]) for link in self.user_data.user_data]
-            )
+            final_links.append([link.get(link_types[link_type]) for link in self.user_data.user_data])
         return final_links
 
     # special cases
@@ -68,5 +68,9 @@ class User:
         return self.user_data.user_data_response
 
     def __init__(self, user):
-        self.user = user
-        self.user_data = User_Requests(self.user)
+        try:
+            self.user = user
+            self.user_data = User_Requests(self.user)
+        except http.client.InvalidURL as e:
+            details = e.args[0].split("'")[2]
+            raise URLerror(f'{details}\nCheck to make sure the name acctualy has no alphanumeric characters/spaces')

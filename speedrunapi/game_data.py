@@ -2,6 +2,9 @@ from speedrunapi import Game_Requests
 from datetime import datetime
 import urllib.error
 import speedrunapi.translation as tr
+import http.client
+from .errors import URLerror
+
 class Game:
     """Data about a game on speedrun.com
     ARGS: game, the full name of the game on speedrun.com"""
@@ -84,12 +87,16 @@ class Game:
 
     @property
     def admins(self):
-        """Returns the developers,publishers, and moderators of a game on speedrun.com as a dictionary"""
+        """Returns the developers, publishers, and moderators of a game on speedrun.com as a dictionary"""
         final_admins = []
         admin_list = ["developers", "publishers", "moderators"]
         for admin in admin_list:
             admins = self.game_data.game_data.get(admin, [])
-            final_admins.append(admins)
+            print(admins)
+            if type(admins) == dict:
+                admins = next(iter(admins))
+                print(admins)
+            final_admins.append(tr.translate_user_id(admins))
         return final_admins
 
     @property
@@ -101,6 +108,7 @@ class Game:
             return date_formatted.strftime("%Y-%m-%d")
         except TypeError:
             return "Cannot create join date"
+    
     # special cases
     @property
     def levels(self):
@@ -140,6 +148,7 @@ class Game:
             return self.game_data.game_data_response
         except urllib.error.HTTPError:
             return "Derived Games Not Found"
+    
     @property
     def romhacks(self):
         """DEPRICATED returns the same as derived games, here for backwards compatiblilty
@@ -154,10 +163,15 @@ class Game:
         return self.game_data.game_data_response
 
     def __init__(self, game):
-        self.game = game
-        self.format_name
-        self.quick_game_data = Game_Requests(self.formated_game_name)
-        self.quick_game_data.game_reqest_quick()
-        self.game_id = self.id
-        self.game_data = Game_Requests(self.id)
-        self.game_data.game_request()
+        try:
+            self.game = game
+            self.format_name
+            self.quick_game_data = Game_Requests(self.formated_game_name)
+            self.quick_game_data.game_reqest_quick()
+            self.game_id = self.id
+            self.game_data = Game_Requests(self.id)
+            self.game_data.game_request()
+        except http.client.InvalidURL as e:
+            details = e.args[0].split("'")[2]
+            raise URLerror(f'{details}\nCheck to make sure the name acctualy has no alphanumeric characters/spaces')
+        

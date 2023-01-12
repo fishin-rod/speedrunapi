@@ -30,10 +30,10 @@ Currently supported operations:
 - abbreviation: Returns the abbreviation of the game as a string
 - release_date: Returns the release date of the game as a string
 - ruleset: Returns the ruleset of the game as dictionary
-- regions: Returns the region ids of the game as a dictionary (can be [])
-- platforms: Returns the platform ids of the game as a dictionary (can be [])
-- genres: Returns the genre ids of the game as a dictionary (can be [])
-- engines: Returns the engin ids of the game as a dictionary (can be [])
+- regions: Returns the regions of the game as a dictionary (can be [])
+- platforms: Returns the platform of the game as a dictionary (can be [])
+- genres: Returns the genres of the game as a dictionary (can be [])
+- engines: Returns the engines of the game as a dictionary (can be [])
 - admins: Returns the developers, publishers, and moderators of the game as a dictionary
 - join_date: Returns the date the game joined speedrun.com as a string
 - levels: Returns the leves of a game as a dictionary
