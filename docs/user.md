@@ -6,7 +6,7 @@ To initialize a user object you use the following code replacing fishin_rod with
 <br>
 The class takes one parameter, a username stored as a string in a variable or a string, 0 or 2+ parameters entered will give a type error.
 ```python
-user = speedrunapi.User('fishin_rod')
+user = speedrunapi.User("fishin_rod")
 ```
 Great! You have set up a user object, now its time to do operations on that user object.
 <br>
@@ -19,7 +19,7 @@ jonryvl8
 ```
 Or you can do it directly to the user object.
 ```python
->>> print(speedrunapi.User('fishin_rod').id)
+>>> print(speedrunapi.User("fishin_rod").id)
 jonryvl8
 ```
 Currently supported operations:

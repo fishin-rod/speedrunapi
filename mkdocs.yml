@@ -1,11 +1,14 @@
 site_name: Speedrunapi Docs
+
 nav:
     - Home: 'index.md'
     - 'Working with the library':
         - 'Instalation': 'instalation.md'
+        - 'Translation': 'translation.md'
         - 'Users': 'user.md'
         - 'Games': 'game.md'
         - 'Runs': 'runs.md'
-        - 'Translation': 'translation.md'
+        - 'Levels': 'levels.md'
+
 theme:
     name: readthedocs

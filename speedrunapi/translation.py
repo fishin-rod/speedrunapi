@@ -3,6 +3,7 @@ from urllib.request import urlopen
 import urllib.error
 import http.client
 from .errors import URLerror
+#try to make just one request or just a couple of requests
 
 def username_to_id(name):
     try:
@@ -129,3 +130,13 @@ def translate_variable(variableid):
     except http.client.InvalidURL as e:
         details = e.args[0].split("'")[2]
         raise URLerror(f'{details}\nvariable IDs cannot contain a non alphanumeric character')
+    
+def translate_level_id(levelid):
+    try:
+        url = f'https://www.speedrun.com/api/v1/levels/{levelid}'
+        return loads(urlopen(url).read().decode('utf-8'))['data']['name']
+    except urllib.error.HTTPError:
+        return "No level found"
+    except http.client.InvalidURL as e:
+        details = e.args[0].split("'")[2]
+        raise URLerror(f'{details}\nlevel IDs cannot contain a non alphanumeric character')

@@ -2,12 +2,12 @@ Speedrun APIS Documentation
 ===
 A python library to work with the speedrun.com API
 To help make working with the API easier, this library, takes care of the bulk of the requests, and seperates the data points into specific funtions.
-Version 0.4.4
+Version 0.5.0
 
 Read about the methods here: [users](user.md), and here: [games](game.md).
 <br>
-To work with more specific informaion [runs](runs.md), may help.<br>
-For misc information [Translations](translation.md).
+To work with more specific informaion [runs](runs.md), [levels](levels.md) may help.<br>
+For misc information [translations](translation.md).
 ### Known Issues
 - No currently known issues
 ### TODO

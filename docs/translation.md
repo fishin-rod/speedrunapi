@@ -11,14 +11,14 @@ To use this module you first need to import it.
 ```
 Then you can use the tr. or what ever you call it as to call some of the funtions avalible.
 ```python
->>> region_translated = tr.translate_region('e6lxy1dz')
+>>> region_translated = tr.translate_region("e6lxy1dz")
 >>> print(region_translated)
 EUR / PAL
 ```
 This is now also fully implemented into the library so code like this wont print the id, but instead will print the region.
 ```python
 >>> from speedrunapi import Game
->>> game = Game('sms')
+>>> game = Game("sms")
 >>> print(game.regions)
 ['EUR / PAL']
 ```
@@ -37,3 +37,5 @@ Currently Supported Operations:
 ## Games
 - translate_game_id: Returns the name of a game from a game id.
 - translate_game_abbreviation: Retruns the name of a game from a abbreviation.
+## Levels
+- translate_level_id: Returns the name of a level from a level id.

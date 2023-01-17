@@ -6,7 +6,7 @@ To initialize a game object you use the following code replacing Minecraft: Java
 <br>
 The class takes one parameter, the name of a game stored as a string in a variable or a string, 0 or 2+ parameters entered will give a type error.
 ```python
-game = speedrunapi.Game('Minecraft: Java Edition')
+game = speedrunapi.Game("Minecraft: Java Edition")
 ```
 Great! You have set up a game object, now its time to do operations on that game object.
 <br>
@@ -18,8 +18,8 @@ If you do the opperation id to the game it will return the id of the game put in
 j1npme6p
 ```
 Or you can do it directly to the game object.
-```python
->>> print(speedrunapi.Game('Minecraft: Java Edition').id)
+```{python}
+>>> print(speedrunapi.Game("Minecraft: Java Edition").id)
 j1npme6p
 ```
 Currently supported operations:
@@ -36,7 +36,6 @@ Currently supported operations:
 - engines: Returns the engines of the game as a dictionary (can be [])
 - admins: Returns the developers, publishers, and moderators of the game as a dictionary
 - join_date: Returns the date the game joined speedrun.com as a string
-- levels: Returns the leves of a game as a dictionary
 - categories: Returns the categories of the game as a dictionary
 - variables: Returns the variables of the game as a dictionary
 - records: Returns the records of the game as a dictionary

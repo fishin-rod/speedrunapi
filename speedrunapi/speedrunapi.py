@@ -1,6 +1,7 @@
 from json import loads
 from urllib.request import urlopen
 from functools import lru_cache
+#start doing error handleing here
 class User_Requests:
     """Makes the user requests to speedrun.com"""
     
@@ -73,3 +74,12 @@ class Game_Requests:
 
     def __init__(self, game):
         self.game = game
+
+class Misc_Requests:
+    
+    @lru_cache
+    def region_request(self):
+        url = f'https://www.speedrun.com/api/v1/regions/{self.misc}'
+
+    def __init__(self, misc):
+        self.misc = misc

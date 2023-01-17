@@ -111,12 +111,6 @@ class Game:
     
     # special cases
     @property
-    def levels(self):
-        """Returns the levels of a game on speedrun.com as a dictionary"""
-        self.game_data.game_data_request(2)
-        return self.game_data.game_data_response
-
-    @property
     def catagories(self):
         """Returns the catagories of a game on speedrun.com as a dictionary"""
         self.game_data.game_data_request(3)

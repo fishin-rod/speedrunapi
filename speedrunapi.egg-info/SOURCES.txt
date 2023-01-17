@@ -4,6 +4,7 @@ pyproject.toml
 speedrunapi/__init__.py
 speedrunapi/errors.py
 speedrunapi/game_data.py
+speedrunapi/levels.py
 speedrunapi/regions.py
 speedrunapi/runs.py
 speedrunapi/speedrunapi.py

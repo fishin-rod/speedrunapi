@@ -12,7 +12,7 @@ Game Runs are made by many users in a single game across lots of different catag
 To setup a user run class first import the library and define a user. 
 ```python
 >>> import speedrunapi
->>> user = speedrunapi.User_Runs('fishin_rod')
+>>> user = speedrunapi.User_Runs("fishin_rod")
 ```
 Next you can do operations on the user you just provided.
 ```python
