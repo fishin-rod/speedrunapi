@@ -9,3 +9,4 @@ from speedrunapi.game_data import *
 from speedrunapi.user_data import *
 from speedrunapi.runs import *
 from speedrunapi.levels import *
+from speedrunapi.regions import * 

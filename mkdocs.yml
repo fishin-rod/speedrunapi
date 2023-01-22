@@ -9,6 +9,7 @@ nav:
         - 'Games': 'game.md'
         - 'Runs': 'runs.md'
         - 'Levels': 'levels.md'
+        - 'Regions': 'regions.md'
 
 theme:
     name: readthedocs

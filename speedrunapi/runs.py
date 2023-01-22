@@ -86,9 +86,7 @@ class User_Runs:
         verify_dates = []
         for verify_date in range(0, 100000):
             try:
-                unformatted_date = self.user_run_data[verify_date]["status"][
-                    "verify-date"
-                ]
+                unformatted_date = self.user_run_data[verify_date]["status"]["verify-date"]
                 formatted_date = datetime.fromisoformat(unformatted_date)
                 verify_dates.append(formatted_date.strftime("%Y-%m-%d %H:%M:%S"))
             except IndexError:
@@ -107,6 +105,25 @@ class User_Runs:
             except IndexError:
                 break
         return submitted_dates
+    
+    @property
+    def run_times(self):
+        run_times = []
+        for time in range(0, 100000):
+            try:
+                unformatted_date = self.user_run_data[time]["times"]["primary_t"]
+                if unformatted_date / 60 < 1:
+                    seconds = "S:", unformatted_date
+                    run_times.append(seconds)
+                elif unformatted_date / 3600 < 1:
+                    minutes = "M:", round(unformatted_date / 60, 2)
+                    run_times.append(minutes)
+                else:
+                    hours = "H:", round(unformatted_date / 3600, 2)
+                    run_times.append(hours)
+            except IndexError:
+                break
+        return run_times
 
     def __init__(self, user):
         self.user = user
@@ -194,9 +211,7 @@ class Game_Runs:
         verify_dates = []
         for verify_date in range(0, 100000):
             try:
-                unformatted_date = self.game_run_data[verify_date]["status"][
-                    "verify-date"
-                ]
+                unformatted_date = self.game_run_data[verify_date]["status"]["verify-date"]
                 if unformatted_date == None:
                     verify_dates.append(None)
                     continue
@@ -278,7 +293,7 @@ class Game_Runs:
                 break
         return values
 
-    def __init__(self, game):
+    def __init__(self, game, category = None):
         self.game = game
         self.game_data = Game(self.game)
         self.game_id = self.game_data.id

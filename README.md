@@ -5,7 +5,7 @@ A library for working with speedrun.coms API
 Docs: 'https://speedrunapi.readthedocs.io'
 The docs should contain all the nessiasary info on how to use the library, The docs should go into depth about most of the functions of the library, but some of the descriptions in the docs may lack good examples.
 
-Version: 0.5.0
+Version: 0.5.1
 ```python
 pip install speedrunapi
 ```

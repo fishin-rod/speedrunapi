@@ -1,7 +1,7 @@
 from speedrunapi import Game_Requests
+import speedrunapi.translation as tr
 from datetime import datetime
 import urllib.error
-import speedrunapi.translation as tr
 import http.client
 from .errors import URLerror
 

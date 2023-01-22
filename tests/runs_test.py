@@ -14,6 +14,7 @@ def user_runs(user):
     print(user.run_examiners)
     print(user.run_verify_dates)
     print(user.run_submitted_dates)
+    print(user.run_times)
 
 def game_runs(game):
     print(game.runs)

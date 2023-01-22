@@ -2,7 +2,7 @@ from json import loads
 from urllib.request import urlopen
 import urllib.error
 import http.client
-from .errors import URLerror
+from speedrunapi.errors import URLerror
 #try to make just one request or just a couple of requests
 
 def username_to_id(name):

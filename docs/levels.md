@@ -4,7 +4,7 @@ Levels are subcatagories of games, not all games will have levels
 <br>
 After importing the library you can start to use the library
 ```python
->>> level = speedrunai.Level("sm64")
+>>> level = speedrunapi.Level("sm64")
 >>> print(level.level_names)
 ['Maple Meadow', 'Polar Peaks', 'Lush Lagoon', 'Torchlight Temple', 'Supersonic Slide', 'Bowser in the Gloomy Sea']
 ```
