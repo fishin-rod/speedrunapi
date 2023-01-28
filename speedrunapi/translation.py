@@ -3,6 +3,7 @@ from urllib.request import urlopen
 import urllib.error
 import http.client
 from speedrunapi.errors import URLerror
+#from speedrunapi import Categories
 #try to make just one request or just a couple of requests
 
 def username_to_id(name):
@@ -17,7 +18,7 @@ def username_to_id(name):
     
 def game_name_to_id(name):
     try:
-        name=name.replace(' ','_')
+        name = name.replace(' ','_')
         url = f'https://www.speedrun.com/api/v1/games?name={name}'
         return loads(urlopen(url).read().decode('utf-8'))['data'][0]['id']
     except IndexError:
@@ -30,7 +31,16 @@ def game_name_to_abbreviation(name):
         return loads(urlopen(url).read().decode('utf-8'))['data'][0]['abbreviation']
     except IndexError:
         return "No game found"
-
+    '''
+def category_name_to_id(category_name):
+    try:
+        category_data = Categories(category_name)
+        for category in range(len(category_data.game_category_names)):
+            if category_data.game_category_ids[category] == category_name:
+                return category_data.game_category_ids[category]
+    except IndexError:
+        return "No category found"
+'''
 def translate_user_id(userid):
     try:
         url = f'https://www.speedrun.com/api/v1/users/{userid}'
@@ -140,3 +150,6 @@ def translate_level_id(levelid):
     except http.client.InvalidURL as e:
         details = e.args[0].split("'")[2]
         raise URLerror(f'{details}\nlevel IDs cannot contain a non alphanumeric character')
+    
+def translate_category_id(catagoryid):
+    pass

@@ -13,11 +13,8 @@ class User_Runs:
 
     def user_runs_data(self, keys):
         final_run_data = []
-        for run in range(0, 100000):
-            try:
-                final_run_data.append(self.user_run_data[run][keys])
-            except IndexError:
-                break
+        for run in range(len(self.user_run_data)):
+            final_run_data.append(self.user_run_data[run][keys])
         return final_run_data
 
     @property
@@ -44,7 +41,7 @@ class User_Runs:
     def run_videos(self):
         """Returns a list of all of the videos a user has for runs on speedrun.com"""
         videos = []
-        for video in range(0, 100000):
+        for video in range(len(self.user_run_data)):
             try:
                 videos.append(self.user_run_data[video]["videos"]["links"][0]["uri"])
             except TypeError:
@@ -62,67 +59,52 @@ class User_Runs:
     def run_status(self):
         """Returns a list of the status of a users runs on speedrun.com"""
         status = []
-        for stat in range(0, 100000):
-            try:
-                status.append(self.user_run_data[stat]["status"]["status"])
-            except IndexError:
-                break
+        for stat in range(len(self.user_run_data)):
+            status.append(self.user_run_data[stat]["status"]["status"])
         return status
 
     @property
     def run_examiners(self):
         """Returns a list of the users who have examined a users runs on speedrun.com"""
         examiners = []
-        for examiner in range(0, 100000):
-            try:
+        for examiner in range(len(self.user_run_data)):
                 examiners.append(self.user_run_data[examiner]["status"]["examiner"])
-            except IndexError:
-                break
         return examiners
 
     @property
     def run_verify_dates(self):
         """Returns a list of the dates when a users runs were verified on speedrun.com"""
         verify_dates = []
-        for verify_date in range(0, 100000):
-            try:
-                unformatted_date = self.user_run_data[verify_date]["status"]["verify-date"]
-                formatted_date = datetime.fromisoformat(unformatted_date)
-                verify_dates.append(formatted_date.strftime("%Y-%m-%d %H:%M:%S"))
-            except IndexError:
-                break
+        for verify_date in range(len(self.user_run_data)):
+            unformatted_date = self.user_run_data[verify_date]["status"]["verify-date"]
+            formatted_date = datetime.fromisoformat(unformatted_date)
+            verify_dates.append(formatted_date.strftime("%Y-%m-%d %H:%M:%S"))
         return verify_dates
 
     @property
     def run_submitted_dates(self):
         """Returns a list of the dates when a users runs were submitted on speedrun.com"""
         submitted_dates = []
-        for submitted_date in range(0, 100000):
-            try:
-                unformatted_date = self.user_run_data[submitted_date]["submitted"]
-                formatted_date = datetime.fromisoformat(unformatted_date)
-                submitted_dates.append(formatted_date.strftime("%Y-%m-%d %H:%M:%S"))
-            except IndexError:
-                break
+        for submitted_date in range(len(self.user_run_data)):
+            unformatted_date = self.user_run_data[submitted_date]["submitted"]
+            formatted_date = datetime.fromisoformat(unformatted_date)
+            submitted_dates.append(formatted_date.strftime("%Y-%m-%d %H:%M:%S"))
         return submitted_dates
     
     @property
     def run_times(self):
         run_times = []
-        for time in range(0, 100000):
-            try:
-                unformatted_date = self.user_run_data[time]["times"]["primary_t"]
-                if unformatted_date / 60 < 1:
-                    seconds = "S:", unformatted_date
-                    run_times.append(seconds)
-                elif unformatted_date / 3600 < 1:
-                    minutes = "M:", round(unformatted_date / 60, 2)
-                    run_times.append(minutes)
-                else:
-                    hours = "H:", round(unformatted_date / 3600, 2)
-                    run_times.append(hours)
-            except IndexError:
-                break
+        for time in range(len(self.user_run_data)):
+            unformatted_date = self.user_run_data[time]["times"]["primary_t"]
+            if unformatted_date / 60 < 1:
+                seconds = "S:", unformatted_date
+                run_times.append(seconds)
+            elif unformatted_date / 3600 < 1:
+                minutes = "M:", round(unformatted_date / 60, 2)
+                run_times.append(minutes)
+            else:
+                hours = "H:", round(unformatted_date / 3600, 2)
+                run_times.append(hours)
         return run_times
 
     def __init__(self, user):
@@ -138,11 +120,8 @@ class Game_Runs:
 
     def game_runs_data(self, keys):
         self.final_run_data = []
-        for run in range(0, 100000):
-            try:
-                self.final_run_data.append(self.game_run_data[run][keys])
-            except IndexError:
-                break
+        for run in range(len(self.game_run_data)):
+            self.final_run_data.append(self.game_run_data[run][keys])
         return self.final_run_data
 
     @property
@@ -169,7 +148,7 @@ class Game_Runs:
     def run_videos(self):
         """Returns a list of all of the videos a game has for runs on speedrun.com"""
         videos = []
-        for video in range(0, 100000):
+        for video in range(len(self.game_run_data)):
             try:
                 videos.append(self.game_run_data[video]["videos"]["links"][0]["uri"])
             except TypeError:
@@ -187,29 +166,23 @@ class Game_Runs:
     def run_status(self):
         """Returns a list of the status of a users runs on speedrun.com"""
         status = []
-        for stat in range(0, 100000):
-            try:
-                status.append(self.game_run_data[stat]["status"]["status"])
-            except IndexError:
-                break
+        for stat in range(len(self.game_run_data)):
+            status.append(self.game_run_data[stat]["status"]["status"])
         return status
 
     @property
     def run_examiners(self):
         """Returns a list of the users who have examined a users runs on speedrun.com"""
         examiners = []
-        for examiner in range(0, 100000):
-            try:
-                examiners.append(self.game_run_data[examiner]["status"]["examiner"])
-            except IndexError:
-                break
+        for examiner in range(len(self.game_run_data)):
+            examiners.append(self.game_run_data[examiner]["status"]["examiner"])
         return examiners
 
     @property
     def run_verify_dates(self):
         """Returns a list of the dates when a users runs were verified on speedrun.com"""
         verify_dates = []
-        for verify_date in range(0, 100000):
+        for verify_date in range(len(self.game_run_data)):
             try:
                 unformatted_date = self.game_run_data[verify_date]["status"]["verify-date"]
                 if unformatted_date == None:
@@ -225,72 +198,57 @@ class Game_Runs:
     def run_users(self):
         """Returns a list of the users who have submitted a run on speedrun.com"""
         users = []
-        for user in range(0, 100000):
-            try:
-                if self.game_run_data[user]["players"][0]["rel"] == "guest":
-                    users.append(self.game_run_data[user]["players"][0]["name"])
-                else:
-                    users.append(self.game_run_data[user]["players"][0]["id"])
-            except IndexError:
-                break
+        for user in range(len(self.game_run_data)):
+            if self.game_run_data[user]["players"][0]["rel"] == "guest":
+                users.append(self.game_run_data[user]["players"][0]["name"])
+            else:
+                users.append(self.game_run_data[user]["players"][0]["id"])
         return users
 
     @property
     def run_submitted_dates(self):
         """Returns a list of the dates when a users runs were submitted on speedrun.com"""
         submitted_dates = []
-        for submit_date in range(0, 100000):
-            try:
-                unformatted_date = self.game_run_data[submit_date]["submitted"]
-                if unformatted_date == None:
-                    submitted_dates.append(None)
-                    continue
-                formatted_date = datetime.fromisoformat(unformatted_date)
-                submitted_dates.append(formatted_date.strftime("%Y-%m-%d %H:%M:%S"))
-            except IndexError:
-                break
+        for submit_date in range(len(self.game_run_data)):
+            unformatted_date = self.game_run_data[submit_date]["submitted"]
+            if unformatted_date == None:
+                submitted_dates.append(None)
+                continue
+            formatted_date = datetime.fromisoformat(unformatted_date)
+            submitted_dates.append(formatted_date.strftime("%Y-%m-%d %H:%M:%S"))
         return submitted_dates
 
     @property
     def run_times(self):
         """Returns a list of the times for runs on speedrun.com"""
         run_times = []
-        for time in range(0, 100000):
-            try:
-                unformatted_date = self.game_run_data[time]["times"]["primary_t"]
-                if unformatted_date / 60 < 1:
-                    seconds = "S:", unformatted_date
-                    run_times.append(seconds)
-                elif unformatted_date / 3600 < 1:
-                    minutes = "M:", round(unformatted_date / 60, 2)
-                    run_times.append(minutes)
-                else:
-                    hours = "H:", round(unformatted_date / 3600, 2)
-                    run_times.append(hours)
-            except IndexError:
-                break
+        for time in range(len(self.game_run_data)):
+            unformatted_date = self.game_run_data[time]["times"]["primary_t"]
+            if unformatted_date / 60 < 1:
+                seconds = "S:", unformatted_date
+                run_times.append(seconds)
+            elif unformatted_date / 3600 < 1:
+                minutes = "M:", round(unformatted_date / 60, 2)
+                run_times.append(minutes)
+            else:
+                hours = "H:", round(unformatted_date / 3600, 2)
+                run_times.append(hours)
         return run_times
 
     @property
     def run_platforms(self):
         """Returns a list of the platforms for runs on speedrun.com"""
         platforms = []
-        for platform in range(0, 100000):
-            try:
+        for platform in range(len(self.game_run_data)):
                 platforms.append(self.game_run_data[platform]["system"]["platform"])
-            except IndexError:
-                break
         return platforms
 
     @property
     def run_values(self):
         """Returns a list of the values for runs on speedrun.com"""
         values = []
-        for value in range(0, 100000):
-            try:
-                values.append(self.game_run_data[value]["values"])
-            except IndexError:
-                break
+        for value in range(len(self.game_run_data)):
+            values.append(self.game_run_data[value]["values"])
         return values
 
     def __init__(self, game, category = None):

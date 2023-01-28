@@ -1,9 +1,9 @@
 from speedrunapi import Game_Requests
 import speedrunapi.translation as tr
+from speedrunapi.errors import URLerror
 from datetime import datetime
 import urllib.error
 import http.client
-from .errors import URLerror
 
 class Game:
     """Data about a game on speedrun.com
@@ -92,10 +92,8 @@ class Game:
         admin_list = ["developers", "publishers", "moderators"]
         for admin in admin_list:
             admins = self.game_data.game_data.get(admin, [])
-            print(admins)
             if type(admins) == dict:
                 admins = next(iter(admins))
-                print(admins)
             final_admins.append(tr.translate_user_id(admins))
         return final_admins
 

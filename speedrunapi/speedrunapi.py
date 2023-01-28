@@ -99,3 +99,17 @@ class Misc_Requests:
         responce = urlopen(url)
         region_data = loads(responce.read().decode('utf-8'))['data']['links'][x]['uri']
         return region_data
+    
+    @lru_cache(maxsize = 10)
+    def leaderboard_data_request(url):
+        try:
+            pass
+        except:
+            pass
+    
+    @lru_cache(maxsize = 10)
+    def categories_data_request(cat):
+        try:
+            url = f'https://www.speedrun.com/api/v1/categories/{cat}'
+        except urllib.error.HTTPError:
+            raise URLerror("Invalid category")

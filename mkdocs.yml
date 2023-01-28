@@ -10,6 +10,9 @@ nav:
         - 'Runs': 'runs.md'
         - 'Levels': 'levels.md'
         - 'Regions': 'regions.md'
+        - 'Categories': 'categories.md'
+        - 'Leaderboards': 'leaderboard.md' 
+        - 'Errors': 'errors.md'
 
 theme:
     name: readthedocs

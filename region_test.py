@@ -34,3 +34,4 @@ region_runs(re)
 end = time.time()
 
 print(end - start)
+
