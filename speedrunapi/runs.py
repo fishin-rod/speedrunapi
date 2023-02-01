@@ -4,7 +4,9 @@ from datetime import datetime
 
 class User_Runs:
     """Data about a users runs on speedrun.com
-    ARGS: User, the user you want to get the runs for"""
+   
+    ARGS: 
+    User - The user you want to get the runs for"""
 
     @property
     def runs(self):
@@ -115,8 +117,10 @@ class User_Runs:
 
 class Game_Runs:
     """Data about a certin games runs on speedrun.com
-    ARGS: Game, the game you want to get the runs for.
-    (SOON!) Catagory ID, the ID of the specific catagory you want to get runs for."""
+    
+    ARGS: 
+    Game - The game you want to get the runs for either as an id or name.
+    (SOON!) Catagory ID/Name - the ID of the specific catagory you want to get runs for."""
 
     def game_runs_data(self, keys):
         self.final_run_data = []

@@ -1,7 +1,7 @@
 """
 A python library for working with the speedrun.com API.
-This library is intented to make the api eaiser to use, 
-by preprocessing the data, and seperating it into specific sub catagories.
+This library is intended to make the api easier to use,
+by preprocessing the data, and separating it into specific sub categories.
 """
 
 from .speedrunapi import *

@@ -1,6 +1,6 @@
-from speedrunapi import Categories
+from speedrunapi.categories import Categories
 
-c = Categories('a ad dad ada 123-')
+c = Categories('Minecraft: Java Edition')
 print(c.categories)
 print(c.category_ids)
 print(c.category_names)
