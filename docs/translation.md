@@ -39,3 +39,6 @@ Currently Supported Operations:
 - translate_game_abbreviation: Retruns the name of a game from a abbreviation.
 ## Levels
 - translate_level_id: Returns the name of a level from a level id.
+
+## Categories
+- translate_category_id: Returns the name of a category from a category id.

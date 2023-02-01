@@ -3,10 +3,13 @@ from speedrunapi.errors import Region_Length_Error, InvalidRegionError
 from speedrunapi.translation import * 
 from datetime import datetime
 import urllib.error
+# !region variables?
 
 class Regions:
     """Data about regions on speedrun.com
-    ARGS: region, the region id or name of a region on speedrun.com"""
+    
+    ARGS: 
+    region - The region id or name of a region on speedrun.com"""
     
     @property
     def region_game(self) -> dict:
@@ -40,6 +43,7 @@ class Regions:
     
     @property
     def region_run_ids(self):
+        """Returns a list of the ids for each of the runs in the region"""
         final_runs_ids = []
         for id in range(len(self.region_runs)):
             final_runs_ids.append(self.region_runs[id]['id'])
@@ -47,6 +51,7 @@ class Regions:
     
     @property
     def region_run_games(self):
+        """Returns a list of the games that are in the reigon"""
         final_games = []
         for id in range(len(self.region_runs)):
             game_id = self.region_runs[id]['game']
@@ -55,6 +60,7 @@ class Regions:
     
     @property
     def region_run_levels(self):
+        """Returns the levels run inside the region"""
         final_levels = []
         for id in range(len(self.region_runs)):
                 level = self.region_runs[id]['level']
@@ -63,6 +69,7 @@ class Regions:
     
     @property
     def region_run_categories(self):
+        """Returns the categories for the runs inside of the region"""
         final_categories = []
         for id in range(len(self.region_runs)):
                 catagory = self.region_runs[id]['category']
@@ -71,6 +78,12 @@ class Regions:
     
     @property
     def region_run_status(self):
+        """Returns the status's of each of the runs in the region
+        
+        Format:
+        'status': Can either be verified or rejected showing if the run was allowed on the leaderboards
+        'examiner': The name of the user who verified the run
+        'verify-date': The date when the run was verified"""
         final_status = []
         for id in range(len(self.region_runs)):
             status = self.region_runs[id]['status']
@@ -85,6 +98,7 @@ class Regions:
     
     @property
     def region_run_comments(self):
+        """Returns a list of the comments that came with the region"""
         final_comments = []
         for id in range(len(self.region_runs)):
             comment = self.region_runs[id]['comment']
@@ -95,6 +109,7 @@ class Regions:
     
     @property
     def region_run_users(self):
+        """Reurns a list of the names of players who have made runs inside the region"""
         final_users = []
         for id in range(len(self.region_runs)):
             user = self.region_runs[id]['players']
@@ -107,6 +122,7 @@ class Regions:
     
     @property
     def region_run_submitted_dates(self):
+        """Returns the dates runs were subbmitted on"""
         final_date = []
         for id in range(len(self.region_runs)):
             date = self.region_runs[id]['date']
@@ -116,6 +132,7 @@ class Regions:
     
     @property
     def region_run_times(self):
+        """Returns the times of the runs in the region"""
         run_times = []
         for time in range(len(self.region_runs)):
             unformatted_date = self.region_runs[time]["times"]["primary_t"]
@@ -132,6 +149,7 @@ class Regions:
     
     @property
     def region_run_platforms(self):
+        """Returns the platforms used for runs in the region"""
         final_platforms = []
         for id in range(len(self.region_runs)):
             platform = self.region_runs[id]['system']['platform']

@@ -18,7 +18,10 @@ class User_Requests:
 
     @lru_cache(maxsize = 10)
     def user_data_request(self, x):
-        """Makes a request to speedrun.com to get the full data of the user"""
+        """Makes a request to speedrun.com to get the full data of the user
+        
+        ARGS:
+        x (int): The index of the link being retrieved"""
         self.user_stat_links()
         url = self.final_links[x]
         responce = urlopen(url)
@@ -59,7 +62,9 @@ class Game_Requests:
     
     @lru_cache(maxsize = 10)
     def game_data_request(self, x):
-        """Uses the links in user_stat_links to retrieve different data for more specific topics"""
+        """Uses the links in user_stat_links to retrieve different data for more specific topics
+        ARGS:
+        x (int): The index of the link in the user_stat_links list"""
         self.game_stat_links()
         url = self.final_links[x]
         responce = urlopen(url)
@@ -82,12 +87,16 @@ class Misc_Requests:
 
     @lru_cache(maxsize = 10)
     def region_data_request(url):
-        response = urlopen(url) #type: ignore
+        """Returns the data for regions after provideing a url to get it"""
+        response = urlopen(url) #type: ignore python cant see the url supplied as a parmater
         region_data = loads(response.read().decode('utf-8'))['data']
         return region_data
 
     @lru_cache(maxsize = 10)
     def region_link_request(region, x):
+        """Gets the links for the region data
+        ARGS:
+        x (int): The index of the link to get"""
         region = region.split(' ', 1)[0] #type: ignore ,error with python thinking its a callable value when its not
         try:
             url = f'https://www.speedrun.com/api/v1/regions/{region}'
@@ -102,14 +111,10 @@ class Misc_Requests:
     
     @lru_cache(maxsize = 10)
     def leaderboard_data_request(url):
+        """Returns data for leaderboards on speedrun.com"""
         try:
-            pass
-        except:
-            pass
-    
-    @lru_cache(maxsize = 10)
-    def categories_data_request(cat):
-        try:
-            url = f'https://www.speedrun.com/api/v1/categories/{cat}'
+            response = urlopen(url) #type: ignore
+            leaderboard_data = loads(response.read().decode('utf-8'))['data']
         except urllib.error.HTTPError:
-            raise URLerror("Invalid category")
+            raise URLerror("Invalid game or category")
+        return leaderboard_data
